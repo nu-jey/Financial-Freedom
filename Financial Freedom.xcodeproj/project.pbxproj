@@ -11,6 +11,8 @@
 		C29153EC2A62AF0F00973C02 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29153EB2A62AF0F00973C02 /* ContentView.swift */; };
 		C29153EE2A62AF1000973C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29153ED2A62AF1000973C02 /* Assets.xcassets */; };
 		C29153F12A62AF1000973C02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29153F02A62AF1000973C02 /* Preview Assets.xcassets */; };
+		C29153F82A62AF3D00973C02 /* Upbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29153F72A62AF3D00973C02 /* Upbit.swift */; };
+		C29153FB2A62AF8C00973C02 /* UpbitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C29153FA2A62AF8C00973C02 /* UpbitSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,7 @@
 		C29153EB2A62AF0F00973C02 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C29153ED2A62AF1000973C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C29153F02A62AF1000973C02 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C29153F72A62AF3D00973C02 /* Upbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upbit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C29153FB2A62AF8C00973C02 /* UpbitSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +59,7 @@
 				C29153EB2A62AF0F00973C02 /* ContentView.swift */,
 				C29153ED2A62AF1000973C02 /* Assets.xcassets */,
 				C29153EF2A62AF1000973C02 /* Preview Content */,
+				C29153F72A62AF3D00973C02 /* Upbit.swift */,
 			);
 			path = "Financial Freedom";
 			sourceTree = "<group>";
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = "Financial Freedom";
+			packageProductDependencies = (
+				C29153FA2A62AF8C00973C02 /* UpbitSwift */,
+			);
 			productName = "Financial Freedom";
 			productReference = C29153E62A62AF0F00973C02 /* Financial Freedom.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = C29153DD2A62AF0F00973C02;
+			packageReferences = (
+				C29153F92A62AF8C00973C02 /* XCRemoteSwiftPackageReference "UpbitSwift" */,
+			);
 			productRefGroup = C29153E72A62AF0F00973C02 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,6 +150,7 @@
 			files = (
 				C29153EC2A62AF0F00973C02 /* ContentView.swift in Sources */,
 				C29153EA2A62AF0F00973C02 /* Financial_FreedomApp.swift in Sources */,
+				C29153F82A62AF3D00973C02 /* Upbit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +351,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C29153F92A62AF8C00973C02 /* XCRemoteSwiftPackageReference "UpbitSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sihon321/UpbitSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C29153FA2A62AF8C00973C02 /* UpbitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C29153F92A62AF8C00973C02 /* XCRemoteSwiftPackageReference "UpbitSwift" */;
+			productName = UpbitSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C29153DE2A62AF0F00973C02 /* Project object */;
 }
