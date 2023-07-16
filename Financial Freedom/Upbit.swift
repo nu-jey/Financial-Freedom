@@ -19,7 +19,6 @@ class Upbit {
             switch result {
             case .success(let marketList):
                 Upbit.shared.marketList = marketList!
-                print(marketList)
             case .failure(let error):
                 print(error.failureReason ?? "Not found error")
             }
@@ -30,7 +29,6 @@ class Upbit {
             switch result {
             case .success(let candles):
                 self.candles = candles!
-                //print(candles)
             case .failure(let error):
                 print(error.failureReason ?? "Not found error")
             }
