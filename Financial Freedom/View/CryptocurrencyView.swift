@@ -10,9 +10,8 @@ import SwiftUI
 struct CryptocurrencyView: View {
     @StateObject var cryptocurrencyViewModel = CryptocurrencyViewModel()
     var body: some View {
-        
         List(cryptocurrencyViewModel.marketList.filter({ $0.market.contains("KRW-") }), id: \.market) { market in
-            NavigationLink(destination: CryptocurrencyDetailView(currentTicker: market.market)) {
+            NavigationLink(destination:CryptocurrencyDetailView(currentTicker: market.market)) {
                 Text(market.koreanName)
             }
         }

@@ -18,6 +18,7 @@
 		C29153EE2A62AF1000973C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29153ED2A62AF1000973C02 /* Assets.xcassets */; };
 		C29153F12A62AF1000973C02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29153F02A62AF1000973C02 /* Preview Assets.xcassets */; };
 		C29153FB2A62AF8C00973C02 /* UpbitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C29153FA2A62AF8C00973C02 /* UpbitSwift */; };
+		C29757172A66C9CE00E12B92 /* ChartState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29757162A66C9CE00E12B92 /* ChartState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C29153E92A62AF0F00973C02 /* Financial_FreedomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financial_FreedomApp.swift; sourceTree = "<group>"; };
 		C29153ED2A62AF1000973C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C29153F02A62AF1000973C02 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C29757162A66C9CE00E12B92 /* ChartState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		C225DC282A63CAB30079136A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C29757162A66C9CE00E12B92 /* ChartState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C225DC2D2A63CF7E0079136A /* CryptocurrencyView.swift in Sources */,
+				C29757172A66C9CE00E12B92 /* ChartState.swift in Sources */,
 				C225DC2B2A63CE190079136A /* MainView.swift in Sources */,
 				C29153EA2A62AF0F00973C02 /* Financial_FreedomApp.swift in Sources */,
 				C225DC312A63CF9C0079136A /* KRView.swift in Sources */,
