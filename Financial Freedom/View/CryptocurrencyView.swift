@@ -14,6 +14,7 @@ struct CryptocurrencyView: View {
             NavigationLink(destination:CryptocurrencyDetailView(currentTicker: market.market)) {
                 Text(market.koreanName)
             }
+            
         }
         .onAppear() {
             cryptocurrencyViewModel.getMarketAll()

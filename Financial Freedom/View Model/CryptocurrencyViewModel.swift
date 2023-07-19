@@ -19,5 +19,8 @@ class CryptocurrencyViewModel: ObservableObject {
                 print(error.failureReason ?? "Not found error")
             }
         }
+        
+            
     }
+    
 }
