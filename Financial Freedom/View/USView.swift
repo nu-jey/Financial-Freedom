@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import XCAStocksAPI
 
 struct USView: View {
     var body: some View {

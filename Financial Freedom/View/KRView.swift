@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct KRView: View {
+    var ki = KoreanInvestment()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("토큰 생성") {
+            ki.Approval()
+        }
     }
+    
 }
 
 struct KRView_Previews: PreviewProvider {
