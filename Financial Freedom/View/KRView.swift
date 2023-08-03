@@ -8,18 +8,10 @@
 import SwiftUI
 
 struct KRView: View {
-    @StateObject var krViewModel:KRViewModel = KRViewModel()
+    var ki = KoreanInvestment()
     var body: some View {
-        VStack {
-            List(krViewModel.marketResponseOutput, id: \.mksc_shrn_iscd) { market in
-                NavigationLink(destination: KRDetailView()) {
-                    Text(market.hts_kor_isnm)
-                }
-            }
-            .onAppear {
-                krViewModel.getToken()
-                krViewModel.searchMarket()
-            }
+        Button("토큰 생성") {
+            ki.Approval()
         }
     }
     
