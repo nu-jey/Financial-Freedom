@@ -31,16 +31,26 @@ struct CryptocurrencyDetailView: View {
                         .padding(.trailing, 20)
                 }
                 Divider()
-                // 차트 뷰
-                Chart() {
-                    ForEach(cryptocurrencyDetailViewModel.candles, id: \.timestamp) {candle in
-                        LineMark(x: .value("Time", candle.candleDateTimeKst), y: .value("Price", candle.tradePrice))
-                            .interpolationMethod(.catmullRom) // 약간 곡선 형태
-                        BarMark(x: .value("Time", candle.candleDateTimeKst),
-                                yStart: .value("Trade Price", candle.highPrice),
-                                yEnd: .value("Trade Price", candle.lowPrice))
-                    }
+                Chart(cryptocurrencyDetailViewModel.chartData, id: \.0.candleDateTimeKst) { candle in
+                    BarMark(x: .value("Time", candle.0.candleDateTimeKst),
+                            yStart: .value("Trade Price", candle.0.highPrice),
+                            yEnd: .value("Trade Price", candle.0.lowPrice))
+                    LineMark(x: .value("Time", candle.0.candleDateTimeKst), y: .value("Price", candle.0.tradePrice))
+                        .interpolationMethod(.catmullRom) // 약간 곡선 형태
+                        .foregroundStyle(.red)
+                        .foregroundStyle(by: .value("Value", "Trade Price"))
+                        .lineStyle(StrokeStyle(lineWidth: 5))
+                    LineMark(x: .value("Time", candle.0.candleDateTimeKst), y: .value("Price", candle.1))
+                        .interpolationMethod(.catmullRom) // 약간 곡선 형태
+                        .foregroundStyle(.green)
+                        .foregroundStyle(by: .value("Value", "MA"))
+                        .lineStyle(StrokeStyle(lineWidth: 5))
+
                 }
+                .chartForegroundStyleScale([
+                    "MA": .green,
+                    "Trade Price": .red
+                ])
                 .chartYScale(domain:cryptocurrencyDetailViewModel.chartRange.0...cryptocurrencyDetailViewModel.chartRange.1)
                 .frame(height:  UIScreen.main.bounds.width / 2)
                 .onChange(of: self.segmentationSelection) { changeCandleType in
