@@ -71,9 +71,6 @@ class CryptocurrencyDetailViewModel: ObservableObject {
         }
         return res
     }
-    func searchMA() {
-        
-    }
     
     func searchTicker(targetMarket: String) {
         upSwift.getTickers(market: [targetMarket]) { result in

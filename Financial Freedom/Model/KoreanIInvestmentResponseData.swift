@@ -55,27 +55,14 @@ struct InquirePriceResponseOutput:Codable {
     let marg_rate:String!
     let rprs_mrkt_kor_name:String!
     let new_hgpr_lwpr_cls_code:String!
-    let bstp_kor_isnm:String!
     let temp_stop_yn:String!
     let oprc_rang_cont_yn:String!
     let clpr_rang_cont_yn:String!
     let crdt_able_yn:String!
     let grmn_rate_cls_code:String!
     let elw_pblc_yn:String!
-    let stck_prpr:String!
-    let prdy_vrss:String!
-    let prdy_vrss_sign:String!
-    let prdy_ctrt:String!
     let acml_tr_pbmn:String!
     let acml_vol:String!
-    let prdy_vrss_vol_rate:String!
-    let stck_oprc:String!
-    let stck_hgpr:String!
-    let stck_lwpr:String!
-    let stck_mxpr:String!
-    let stck_llam:String!
-    let stck_sdpr:String!
-    let wghn_avrg_stck_prc:String!
     let hts_frgn_ehrt:String!
     let frgn_ntby_qty:String!
     let pgtr_ntby_qty:String!
@@ -129,24 +116,22 @@ struct InquirePriceResponseOutput:Codable {
     let ovtm_vi_cls_code:String!
     let last_ssts_cntg_qty:String!
     let invt_caful_yn:String!
-    let mrkt_warn_cls_code:String!
     let short_over_yn:String!
     let sltr_yn:String!
-    
-//    let iscd_stat_cls_code:String! // 종목 상태 코드 -> 00 : 그외, 51 : 관리종목, 52 : 투자의견, 53 : 투자경고, 54 : 투자주의, 55 : 신용가능, 57 : 증거금 100%, 58 : 거래정지, 59 : 단기과열
-//    let bstp_kor_isnm:String! // 업종
-//    let stck_prpr:String! // 주식 현재가
-//    let prdy_vrss:String! // 전일 대비
-//    let prdy_vrss_sign:String! // 전일 대비 부호 -> 1 : 상한, 2 : 상승, 3 : 보합, 4 : 하한, 5 : 하락
-//    let prdy_ctrt:String! // 전일 대비율
-//    let prdy_vrss_vol_rate:String! // 전일 대비 거래량 비율
-//    let stck_oprc:String! // 주식 시가
-//    let stck_hgpr:String! // 주식 최고가
-//    let stck_lwpr:String! // 주식 최저가
-//    let stck_mxpr:String! // 주식 상한가
-//    let stck_llam:String! // 주식 하한가
-//    let stck_sdpr:String! // 주식 기준가
-//    let wghn_avrg_stck_prc:String! // 가중 평균 주식 가격
-//    let mrkt_warn_cls_code:String! // 시장 경고 코드 -> 00 : 없음, 01 : 투자주의, 02 : 투자경고, 03 : 투자위험
+    let iscd_stat_cls_code:String! // 종목 상태 코드 -> 00 : 그외, 51 : 관리종목, 52 : 투자의견, 53 : 투자경고, 54 : 투자주의, 55 : 신용가능, 57 : 증거금 100%, 58 : 거래정지, 59 : 단기과열
+    let bstp_kor_isnm:String! // 업종
+    let stck_prpr:String! // 주식 현재가
+    let prdy_vrss_sign:String! // 전일 대비 부호 -> 1 : 상한, 2 : 상승, 3 : 보합, 4 : 하한, 5 : 하락
+    let prdy_vrss:String! // 전일 대비
+    let prdy_ctrt:String! // 전일 대비율
+    let prdy_vrss_vol_rate:String! // 전일 대비 거래량 비율
+    let stck_oprc:String! // 주식 시가
+    let stck_hgpr:String! // 주식 최고가
+    let stck_lwpr:String! // 주식 최저가
+    let stck_mxpr:String! // 주식 상한가
+    let stck_llam:String! // 주식 하한가
+    let stck_sdpr:String! // 주식 기준가
+    let wghn_avrg_stck_prc:String! // 가중 평균 주식 가격
+    let mrkt_warn_cls_code:String! // 시장 경고 코드 -> 00 : 없음, 01 : 투자주의, 02 : 투자경고, 03 : 투자위험
 }
 

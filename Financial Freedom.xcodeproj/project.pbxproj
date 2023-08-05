@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C200673E2A7D095900EC4ED3 /* KRDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200673D2A7D095900EC4ED3 /* KRDetailView.swift */; };
-		C20067402A7D096800EC4ED3 /* CandleForChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200673F2A7D096800EC4ED3 /* CandleForChart.swift */; };
 		C20067422A7D0A5100EC4ED3 /* KRDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20067412A7D0A5100EC4ED3 /* KRDetailViewModel.swift */; };
 		C20067442A7D0CB300EC4ED3 /* KoreanIInvestmentResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20067432A7D0CB300EC4ED3 /* KoreanIInvestmentResponseData.swift */; };
 		C223B03A2A7BDAF900F1AA22 /* Upbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B0392A7BDAF900F1AA22 /* Upbit.swift */; };
@@ -24,14 +23,12 @@
 		C29153EE2A62AF1000973C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29153ED2A62AF1000973C02 /* Assets.xcassets */; };
 		C29153F12A62AF1000973C02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29153F02A62AF1000973C02 /* Preview Assets.xcassets */; };
 		C29153FB2A62AF8C00973C02 /* UpbitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C29153FA2A62AF8C00973C02 /* UpbitSwift */; };
-		C29757172A66C9CE00E12B92 /* ChartState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29757162A66C9CE00E12B92 /* ChartState.swift */; };
 		C2EC14DE2A6AB48B00A5057C /* KoreaInvestment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EC14DD2A6AB48B00A5057C /* KoreaInvestment.swift */; };
 		C2EC14E02A6ABB2600A5057C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EC14DF2A6ABB2600A5057C /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C200673D2A7D095900EC4ED3 /* KRDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KRDetailView.swift; path = "../../../../../.Trash/Financial-Freedom 오후 9.52.26/Financial Freedom/View/KRDetailView.swift"; sourceTree = "<group>"; };
-		C200673F2A7D096800EC4ED3 /* CandleForChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CandleForChart.swift; path = "../../../../../.Trash/Financial-Freedom 오후 9.52.26/Financial Freedom/Model/CandleForChart.swift"; sourceTree = "<group>"; };
 		C20067412A7D0A5100EC4ED3 /* KRDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRDetailViewModel.swift; sourceTree = "<group>"; };
 		C20067432A7D0CB300EC4ED3 /* KoreanIInvestmentResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanIInvestmentResponseData.swift; sourceTree = "<group>"; };
 		C223B0392A7BDAF900F1AA22 /* Upbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upbit.swift; sourceTree = "<group>"; };
@@ -48,7 +45,6 @@
 		C29153E92A62AF0F00973C02 /* Financial_FreedomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financial_FreedomApp.swift; sourceTree = "<group>"; };
 		C29153ED2A62AF1000973C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C29153F02A62AF1000973C02 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C29757162A66C9CE00E12B92 /* ChartState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartState.swift; sourceTree = "<group>"; };
 		C2EC14DD2A6AB48B00A5057C /* KoreaInvestment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaInvestment.swift; sourceTree = "<group>"; };
 		C2EC14DF2A6ABB2600A5057C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,8 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				C223B0392A7BDAF900F1AA22 /* Upbit.swift */,
-				C29757162A66C9CE00E12B92 /* ChartState.swift */,
-				C200673F2A7D096800EC4ED3 /* CandleForChart.swift */,
 				C2EC14DD2A6AB48B00A5057C /* KoreaInvestment.swift */,
 				C20067432A7D0CB300EC4ED3 /* KoreanIInvestmentResponseData.swift */,
 			);
@@ -217,12 +211,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C225DC2D2A63CF7E0079136A /* CryptocurrencyView.swift in Sources */,
-				C29757172A66C9CE00E12B92 /* ChartState.swift in Sources */,
 				C223B04E2A7BE18D00F1AA22 /* CryptocurrencyViewModel.swift in Sources */,
 				C225DC2B2A63CE190079136A /* MainView.swift in Sources */,
 				C2EC14DE2A6AB48B00A5057C /* KoreaInvestment.swift in Sources */,
 				C223B03A2A7BDAF900F1AA22 /* Upbit.swift in Sources */,
-				C20067402A7D096800EC4ED3 /* CandleForChart.swift in Sources */,
 				C29153EA2A62AF0F00973C02 /* Financial_FreedomApp.swift in Sources */,
 				C225DC312A63CF9C0079136A /* KRView.swift in Sources */,
 				C223B04C2A7BE14B00F1AA22 /* CryptocurrencyDetailView.swift in Sources */,

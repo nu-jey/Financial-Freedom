@@ -145,7 +145,7 @@ class KoreanInvestment {
     }
     func inquirePrice(fid_cond_mrkt_div_code:String, fid_input_iscd:String, completionHandler: @escaping (Bool, Any) -> Void) {
         // API - 주식 현재가 시세
-        var request = URLRequest(url: URL(string: "https://openapi.koreainvestment.com:9443/uapi/domestic-stock/v1/quotations/inquire-price?FID_COND_MRKT_DIV_CODE=J&FID_INPUT_ISCD=005930")!)
+        var request = URLRequest(url: URL(string: "https://openapi.koreainvestment.com:9443/uapi/domestic-stock/v1/quotations/inquire-price?FID_COND_MRKT_DIV_CODE=\(fid_cond_mrkt_div_code)&FID_INPUT_ISCD=\(fid_input_iscd)")!)
         request.httpMethod = "Get"
         
         print(self.accessToken)
@@ -167,7 +167,6 @@ class KoreanInvestment {
                 print("Error: JSON Data Parsing failed")
                 return
             }
-            print(output)
             if output.rt_cd == "1" {
                 // 요청 실패
                 completionHandler(false, output.msg1!)
@@ -175,5 +174,35 @@ class KoreanInvestment {
                 completionHandler(true, output.output)
             }
         }.resume()
+    }
+}
+
+
+enum KRChartStateType {
+    case up
+    case upRight
+    case right
+    case downRight
+    case down
+    case unknown
+}
+
+struct KRChartState {
+    var state: KRChartStateType
+    var image: String {
+        switch self.state {
+        case .up:
+            return "arrow.up.to.line"
+        case .upRight:
+            return "arrow.up.right.square"
+        case .right:
+            return "arrow.right.square"
+        case .downRight:
+            return "arrow.down.right.square"
+        case .down:
+            return "arrow.down.to.line"
+        case .unknown:
+            return "questionmark.square"
+        }
     }
 }
