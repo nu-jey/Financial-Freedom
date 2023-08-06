@@ -148,7 +148,6 @@ class KoreanInvestment {
         var request = URLRequest(url: URL(string: "https://openapi.koreainvestment.com:9443/uapi/domestic-stock/v1/quotations/inquire-price?FID_COND_MRKT_DIV_CODE=\(fid_cond_mrkt_div_code)&FID_INPUT_ISCD=\(fid_input_iscd)")!)
         request.httpMethod = "Get"
         
-        print(self.accessToken)
         // header
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "authorization")
@@ -164,6 +163,38 @@ class KoreanInvestment {
                 return
             }
             guard let output = try? JSONDecoder().decode(InquirePriceResponse.self, from: data!) else {
+                print("Error: JSON Data Parsing failed")
+                return
+            }
+            if output.rt_cd == "1" {
+                // 요청 실패
+                completionHandler(false, output.msg1!)
+            } else {
+                completionHandler(true, output.output)
+            }
+        }.resume()
+    }
+    
+    func inquireDailyPrice(fid_cond_mrkt_div_code:String, fid_input_iscd:String, fid_period_div_code:String, fid_org_adj_prc:String, completionHandler: @escaping (Bool, Any) -> Void) {
+        // API - 주식 현재가 일자별
+        var request = URLRequest(url: URL(string:"https://openapi.koreainvestment.com:9443/uapi/domestic-stock/v1/quotations/inquire-daily-price?fid_cond_mrkt_div_code=\(fid_cond_mrkt_div_code)&fid_input_iscd=\(fid_input_iscd)&fid_period_div_code=\(fid_period_div_code)&fid_org_adj_prc=\(fid_org_adj_prc)")!)
+        request.httpMethod = "Get"
+        
+        // header
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "authorization")
+        request.setValue("\(Constant.appKey)", forHTTPHeaderField:"appkey")
+        request.setValue("\(Constant.appsecret)", forHTTPHeaderField: "appsecret")
+        request.setValue("FHKST01010400", forHTTPHeaderField: "tr_id")
+        
+        // 서버에 요청 - 주식 현재가 일자별
+        URLSession.shared.dataTask(with: request) {(data, response, error) in
+            // error 체크
+            if let e = error {
+                print(e.localizedDescription)
+                return
+            }
+            guard let output = try? JSONDecoder().decode(InquireDailyPriceResponse.self, from: data!) else {
                 print("Error: JSON Data Parsing failed")
                 return
             }

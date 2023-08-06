@@ -45,10 +45,10 @@ struct MarketResponseOutput: Codable {
 
 // 주식 현재가 시세
 struct InquirePriceResponse:Codable {
-    let output:InquirePriceResponseOutput
     let rt_cd:String?
     let msg_cd:String?
     let msg1:String?
+    let output:InquirePriceResponseOutput
 }
 
 struct InquirePriceResponseOutput:Codable {
@@ -135,3 +135,27 @@ struct InquirePriceResponseOutput:Codable {
     let mrkt_warn_cls_code:String! // 시장 경고 코드 -> 00 : 없음, 01 : 투자주의, 02 : 투자경고, 03 : 투자위험
 }
 
+// 주식 현재가 일별
+struct InquireDailyPriceResponse:Codable {
+    let rt_cd:String?
+    let msg_cd:String?
+    let msg1:String?
+    let output:[InquireDailyPriceResponseOutput]
+}
+
+struct InquireDailyPriceResponseOutput:Codable {
+    let stck_bsop_date:String! // 주식 영업 일자
+    let stck_oprc:String! // 주식 시가
+    let stck_hgpr:String! //    주식 최고가
+    let stck_lwpr:String! //     주식 최저가
+    let stck_clpr:String! //     주식 종가
+    let acml_vol:String! //     누적 거래량
+    let prdy_vrss_vol_rate:String!//     전일 대비 거래량 비율
+    let prdy_vrss:String! //     전일 대비
+    let prdy_vrss_sign:String! //     전일 대비 부호        1 : 상한    2 : 상승    3 : 보합    4 : 하한    5 : 하락
+    let prdy_ctrt:String!//    전일 대비율
+    let hts_frgn_ehrt:String! //     HTS 외국인 소진율
+    let frgn_ntby_qty:String! //     외국인 순매수 수량
+    let flng_cls_code:String! //     락 구분 코드    01:권리락 02:배당락 03:분배락 04:권배락 05:중간(분기)배당락 06:권리중간배당락     07:권리분기배당락
+    let acml_prtt_rate:String! //     누적 분할 비율
+}
