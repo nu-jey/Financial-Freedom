@@ -13,8 +13,9 @@ class KRDetailViewModel:ObservableObject {
     @Published var signImage = KRChartState(state: .right)
     @Published var chartRange: (Double,Double) = (0,0)
     
-    func inquirePrice(koreanInvestment: KoreanInvestment, fid_cond_mrkt_div_code:String, fid_input_iscd:String) {
-        koreanInvestment.inquirePrice(fid_cond_mrkt_div_code: fid_cond_mrkt_div_code, fid_input_iscd: fid_input_iscd){ (state, data) in
+    func inquirePrice(fid_cond_mrkt_div_code:String, fid_input_iscd:String) {
+        KoreanInvestment.shared.inquirePrice(fid_cond_mrkt_div_code: fid_cond_mrkt_div_code, fid_input_iscd: fid_input_iscd){ (state, data) in
+            print(data)
             if state {
                 DispatchQueue.main.async { [weak self] in
                     self!.inquirePriceResponseOutput = data as! InquirePriceResponseOutput
@@ -38,8 +39,8 @@ class KRDetailViewModel:ObservableObject {
             }
         }
     }
-    func inquireDailyPrice(koreanInvestment: KoreanInvestment, fid_cond_mrkt_div_code:String, fid_input_iscd:String, fid_period_div_code:String, fid_org_adj_prc:String) {
-        koreanInvestment.inquireDailyPrice(fid_cond_mrkt_div_code: fid_cond_mrkt_div_code, fid_input_iscd: fid_input_iscd, fid_period_div_code: fid_period_div_code, fid_org_adj_prc: fid_org_adj_prc) { (state, data) in
+    func inquireDailyPrice(fid_cond_mrkt_div_code:String, fid_input_iscd:String, fid_period_div_code:String, fid_org_adj_prc:String) {
+        KoreanInvestment.shared.inquireDailyPrice(fid_cond_mrkt_div_code: fid_cond_mrkt_div_code, fid_input_iscd: fid_input_iscd, fid_period_div_code: fid_period_div_code, fid_org_adj_prc: fid_org_adj_prc) { (state, data) in
             DispatchQueue.main.async { [weak self] in
                 self!.inquireDailyPriceResponseOutput = data as! [InquireDailyPriceResponseOutput]
                 self!.inquireDailyPriceResponseOutput = Array(self!.inquireDailyPriceResponseOutput).reversed()

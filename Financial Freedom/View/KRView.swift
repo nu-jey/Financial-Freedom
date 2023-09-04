@@ -12,8 +12,8 @@ struct KRView: View {
     var body: some View {
         VStack {
             List(krViewModel.marketResponseOutput, id: \.mksc_shrn_iscd) { market in
-                NavigationLink(destination: KRDetailView(krViewModel: self.krViewModel, currentTicker: market)) {
-                    Text(market.hts_kor_isnm + market.mksc_shrn_iscd)
+                NavigationLink(destination: KRDetailView(mksc_shrn_iscd: market.mksc_shrn_iscd, hts_kor_isnm: market.hts_kor_isnm)) {
+                    Text(market.hts_kor_isnm + ":" +  market.mksc_shrn_iscd)
                 }
             }
             .onAppear {

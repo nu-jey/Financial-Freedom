@@ -42,26 +42,6 @@ class Upbit {
     }
 }
 
-enum ChartStateType {
-    case upRight
-    case right
-    case downRight
-}
-
-struct ChartState {
-    var state: ChartStateType
-    var image: String {
-        switch self.state {
-        case .upRight:
-            return "arrow.up.right.square"
-        case .right:
-            return "arrow.right.square"
-        case .downRight:
-            return "arrow.down.right.square"
-        }
-    }
-}
-
 struct CandleForChart:Identifiable {
     var candle: UpbitCandle
     var id: UUID = UUID()

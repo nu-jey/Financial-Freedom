@@ -7,10 +7,11 @@
 
 import Foundation
 
-class KoreanInvestment {
+class KoreanInvestment:ObservableObject {
     private var accessToken:String = ""
+    static let shared:KoreanInvestment = KoreanInvestment()
     
-    func getToken(completionHandler: @escaping (Bool, Any) -> Void) {
+    func getToken(completionHandler: @escaping (Bool) -> Void) {
         // API - 토큰 발행
         var request = URLRequest(url: URL(string: "https://openapi.koreainvestment.com:9443/oauth2/tokenP")!)
         request.httpMethod = "POST"
@@ -42,7 +43,8 @@ class KoreanInvestment {
                 return
             }
             // 반환 받은 토큰 값 저장
-            completionHandler(true, output.access_token!)
+            self.accessToken = output.access_token ?? ""
+            completionHandler(true)
         }
         approvalTask.resume()
     }

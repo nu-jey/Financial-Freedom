@@ -8,4 +8,6 @@
 import Foundation
 
 struct Constant {
+    static let appKey:String = ""
+    static let appsecret:String = ""
 }

@@ -37,7 +37,7 @@ class CryptocurrencyDetailViewModel: ObservableObject {
     @Published var tickers = UpbitTickers()
     @Published var chartState = ChartState(state: .upRight)
     @Published var chartData:[(UpbitCandle, Double)] = []
-    
+    @Published var trendData:Dictionary<String,Bool> = [:] // 시점과 상태(true: 고점, false: 저점) 기록
     func searchCandle(targetMarket: String, candleType: CandleType, range: Int)  {
         upSwift.getCandle(candleType, market: targetMarket) { result in
             switch result {
@@ -49,12 +49,16 @@ class CryptocurrencyDetailViewModel: ObservableObject {
                 self.chartData = []
                 for i in 0..<self.candles.count {
                     self.chartData.append((self.candles[i], self.ma[i].0))
+                    if (i>0) && (i+1 == self.candles.count) {
+                        
+                    }
                 }
             case .failure(let error):
                 print(error.failureReason ?? "Not found error")
             }
         }
     }
+    
     func makeMA(_ prices:[Double], _ timeLine:[String], _ period: Int) -> [(Double,String)] {
         var res:[(Double,String)]  = []
         let length = prices.count
