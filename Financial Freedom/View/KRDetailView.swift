@@ -31,11 +31,11 @@ struct KRDetailView: View {
                 // 차트 뷰
                 Chart() {
                     ForEach(krDetailViewModel.inquireDailyPriceResponseOutput, id: \.stck_bsop_date) { candle in
-                        LineMark(x: .value("Time", candle.stck_bsop_date), y: .value("Price", candle.stck_clpr))
-                            .interpolationMethod(.catmullRom) // 약간 곡선 형태
-//                        BarMark(x: .value("Time", candle.stck_bsop_date),
-//                                yStart: .value("High Price", candle.stck_hgpr),
-//                                yEnd: .value("Low Price", candle.stck_lwpr))
+//                        LineMark(x: .value("Time", candle.stck_bsop_date), y: .value("Price", candle.stck_clpr))
+//                            .interpolationMethod(.catmullRom) // 약간 곡선 형태
+                        BarMark(x: .value("Time", candle.stck_bsop_date),
+                                yStart: .value("High Price", candle.stck_hgpr),
+                                yEnd: .value("Low Price", candle.stck_lwpr))
                     }
                 }
                 

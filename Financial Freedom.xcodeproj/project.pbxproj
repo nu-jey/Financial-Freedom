@@ -25,8 +25,9 @@
 		C29153EE2A62AF1000973C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29153ED2A62AF1000973C02 /* Assets.xcassets */; };
 		C29153F12A62AF1000973C02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29153F02A62AF1000973C02 /* Preview Assets.xcassets */; };
 		C29153FB2A62AF8C00973C02 /* UpbitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C29153FA2A62AF8C00973C02 /* UpbitSwift */; };
+		C29596982AA8A94900240AE4 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29596972AA8A94900240AE4 /* APIKey.plist */; };
+		C2C48BA42AA9F68500BDC266 /* FF++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C48BA32AA9F68500BDC266 /* FF++Bundle.swift */; };
 		C2EC14DE2A6AB48B00A5057C /* KoreaInvestment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EC14DD2A6AB48B00A5057C /* KoreaInvestment.swift */; };
-		C2EC14E02A6ABB2600A5057C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EC14DF2A6ABB2600A5057C /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +49,9 @@
 		C29153E92A62AF0F00973C02 /* Financial_FreedomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financial_FreedomApp.swift; sourceTree = "<group>"; };
 		C29153ED2A62AF1000973C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C29153F02A62AF1000973C02 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C29596972AA8A94900240AE4 /* APIKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
+		C2C48BA32AA9F68500BDC266 /* FF++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FF++Bundle.swift"; sourceTree = "<group>"; };
 		C2EC14DD2A6AB48B00A5057C /* KoreaInvestment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaInvestment.swift; sourceTree = "<group>"; };
-		C2EC14DF2A6ABB2600A5057C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		C29153DD2A62AF0F00973C02 = {
 			isa = PBXGroup;
 			children = (
+				C29596972AA8A94900240AE4 /* APIKey.plist */,
 				C28540BA2AA45A18003E7436 /* Financial-Freedom-Info.plist */,
 				C29153E82A62AF0F00973C02 /* Financial Freedom */,
 				C29153E72A62AF0F00973C02 /* Products */,
@@ -125,7 +128,7 @@
 				C225DC282A63CAB30079136A /* Model */,
 				C225DC272A63CAA90079136A /* View */,
 				C225DC292A63CAB90079136A /* View Model */,
-				C2EC14DF2A6ABB2600A5057C /* Constant.swift */,
+				C2C48BA32AA9F68500BDC266 /* FF++Bundle.swift */,
 			);
 			path = "Financial Freedom";
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29153F12A62AF1000973C02 /* Preview Assets.xcassets in Resources */,
+				C29596982AA8A94900240AE4 /* APIKey.plist in Resources */,
 				C29153EE2A62AF1000973C02 /* Assets.xcassets in Resources */,
 				C28540BB2AA45A18003E7436 /* Financial-Freedom-Info.plist in Resources */,
 			);
@@ -226,8 +230,8 @@
 				C225DC332A63D6800079136A /* CryptocurrencyDetailViewModel.swift in Sources */,
 				C28540C12AA45B25003E7436 /* KRDetailView.swift in Sources */,
 				C20067442A7D0CB300EC4ED3 /* KoreanIInvestmentResponseData.swift in Sources */,
-				C2EC14E02A6ABB2600A5057C /* Constant.swift in Sources */,
 				C28540BD2AA45A99003E7436 /* KRViewModel.swift in Sources */,
+				C2C48BA42AA9F68500BDC266 /* FF++Bundle.swift in Sources */,
 				C20067422A7D0A5100EC4ED3 /* KRDetailViewModel.swift in Sources */,
 				C28540C92AA45ED0003E7436 /* ChartState.swift in Sources */,
 				C225DC2F2A63CF920079136A /* USView.swift in Sources */,

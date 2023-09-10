@@ -21,8 +21,8 @@ class KoreanInvestment:ObservableObject {
         // body
         let body = [
             "grant_type": "client_credentials",
-            "appkey": "\(Constant.appKey)",
-            "appsecret":"\(Constant.appsecret)"
+            "appkey": "\(Bundle.main.appKey!)",
+            "appsecret":"\(Bundle.main.appsecret!)"
         ] as [String: Any]
         
         do {
@@ -61,8 +61,8 @@ class KoreanInvestment:ObservableObject {
             // body
             let body = [
                 "grant_type": "client_credentials",
-                "appkey": "\(Constant.appKey)",
-                "appsecret":"\(Constant.appsecret)"
+                "appkey": "\(Bundle.main.appKey!)",
+                "appsecret":"\(Bundle.main.appsecret!)"
             ] as [String: Any]
             
             do {
@@ -91,8 +91,8 @@ class KoreanInvestment:ObservableObject {
                 // header
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "authorization")
-                request.setValue("\(Constant.appKey)", forHTTPHeaderField:"appkey")
-                request.setValue("\(Constant.appsecret)", forHTTPHeaderField: "appsecret")
+                request.setValue("\(Bundle.main.appKey!)", forHTTPHeaderField:"appkey")
+                request.setValue("\(Bundle.main.appsecret!)", forHTTPHeaderField: "appsecret")
                 request.setValue("FHPST01710000", forHTTPHeaderField: "tr_id")
                 // 서버에 요청 - 거래량 순위
                 URLSession.shared.dataTask(with: request) {(data, response, error) in
@@ -122,8 +122,8 @@ class KoreanInvestment:ObservableObject {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             
             request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "authorization")
-            request.setValue("\(Constant.appKey)", forHTTPHeaderField:"appkey")
-            request.setValue("\(Constant.appsecret)", forHTTPHeaderField: "appsecret")
+            request.setValue("\(Bundle.main.appKey!)", forHTTPHeaderField:"appkey")
+            request.setValue("\(Bundle.main.appsecret!)", forHTTPHeaderField: "appsecret")
             request.setValue("FHPST01710000", forHTTPHeaderField: "tr_id")
             URLSession.shared.dataTask(with: request) {(data, response, error) in
                 // error 체크
@@ -153,8 +153,8 @@ class KoreanInvestment:ObservableObject {
         // header
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "authorization")
-        request.setValue("\(Constant.appKey)", forHTTPHeaderField:"appkey")
-        request.setValue("\(Constant.appsecret)", forHTTPHeaderField: "appsecret")
+        request.setValue("\(Bundle.main.appKey!)", forHTTPHeaderField:"appkey")
+        request.setValue("\(Bundle.main.appsecret!)", forHTTPHeaderField: "appsecret")
         request.setValue("FHKST01010100", forHTTPHeaderField: "tr_id")
         
         // 서버에 요청 - 주식 현재가 시세
@@ -185,8 +185,8 @@ class KoreanInvestment:ObservableObject {
         // header
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "authorization")
-        request.setValue("\(Constant.appKey)", forHTTPHeaderField:"appkey")
-        request.setValue("\(Constant.appsecret)", forHTTPHeaderField: "appsecret")
+        request.setValue("\(Bundle.main.appKey!)", forHTTPHeaderField:"appkey")
+        request.setValue("\(Bundle.main.appsecret!)", forHTTPHeaderField: "appsecret")
         request.setValue("FHKST01010400", forHTTPHeaderField: "tr_id")
         
         // 서버에 요청 - 주식 현재가 일자별

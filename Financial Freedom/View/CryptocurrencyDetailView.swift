@@ -33,14 +33,23 @@ struct CryptocurrencyDetailView: View {
                 Divider()
                 // 차트 뷰
                 Chart() {
-                    ForEach(cryptocurrencyDetailViewModel.candles, id: \.timestamp) {candle in
-                        LineMark(x: .value("Time", candle.candleDateTimeKst), y: .value("Price", candle.tradePrice))
+                    ForEach(cryptocurrencyDetailViewModel.chartData, id: \.0.timestamp) {candle in
+                        LineMark(x: .value("Time", candle.0.candleDateTimeKst), y: .value("Price", candle.0.tradePrice))
                             .interpolationMethod(.catmullRom) // 약간 곡선 형태
-                        BarMark(x: .value("Time", candle.candleDateTimeKst),
-                                yStart: .value("Trade Price", candle.highPrice),
-                                yEnd: .value("Trade Price", candle.lowPrice))
+                            .foregroundStyle(by: .value("PRICE", "PRICE"))
+                        
+//                        BarMark(x: .value("Time", candle.0.candleDateTimeKst),
+//                                yStart: .value("Trade Price", candle.0.highPrice),
+//                                yEnd: .value("Trade Price", candle.0.lowPrice))
+                        LineMark(x: .value("Time", candle.0.candleDateTimeKst), y: .value("MA", candle.1))
+                            .foregroundStyle(by: .value("MA", "MA"))
+                        LineMark(x: .value("Time", candle.0.candleDateTimeKst), y: .value("BBUP", candle.2))
+                            .foregroundStyle(by: .value("BBUP", "BBUP"))
+                        LineMark(x: .value("Time", candle.0.candleDateTimeKst), y: .value("BBDW", candle.3))
+                            .foregroundStyle(by: .value("BBDW", "BBDW"))
                     }
                 }
+                .chartForegroundStyleScale(["PRICE": .blue, "MA":.red, "BBUP": .cyan, "BBDW":.green])
                 .chartYScale(domain:cryptocurrencyDetailViewModel.chartRange.0...cryptocurrencyDetailViewModel.chartRange.1)
                 .frame(height:  UIScreen.main.bounds.width / 2)
                 .onChange(of: self.segmentationSelection) { changeCandleType in

@@ -36,8 +36,8 @@ class CryptocurrencyDetailViewModel: ObservableObject {
     @Published var ma: [(Double, String)] = []
     @Published var tickers = UpbitTickers()
     @Published var chartState = ChartState(state: .upRight)
-    @Published var chartData:[(UpbitCandle, Double)] = []
-    @Published var trendData:Dictionary<String,Bool> = [:] // 시점과 상태(true: 고점, false: 저점) 기록
+    @Published var chartData:[(UpbitCandle, Double, Double, Double)] = []
+    @Published var bollingerBands:[(Double,Double)] = []
     func searchCandle(targetMarket: String, candleType: CandleType, range: Int)  {
         upSwift.getCandle(candleType, market: targetMarket) { result in
             switch result {
@@ -48,7 +48,7 @@ class CryptocurrencyDetailViewModel: ObservableObject {
                 self.ma = self.makeMA(self.candles.map { $0.tradePrice }, self.candles.map { $0.candleDateTimeKst}, 5)
                 self.chartData = []
                 for i in 0..<self.candles.count {
-                    self.chartData.append((self.candles[i], self.ma[i].0))
+                    self.chartData.append((self.candles[i], self.ma[i].0, self.bollingerBands[i].0, self.bollingerBands[i].1))
                     if (i>0) && (i+1 == self.candles.count) {
                         
                     }
@@ -64,17 +64,26 @@ class CryptocurrencyDetailViewModel: ObservableObject {
         let length = prices.count
         for i in 0..<length {
             let calcPrice: Double
+            let priceArray:[Double]
+            let bbValue:(Double, Double)
             if i+1 < period {
-                calcPrice = (prices[...i].reduce(0, +) / Double(i+1))
+                priceArray = Array(prices[...i])
+                calcPrice = priceArray.reduce(0, +) / Double(i+1)
             } else if i > (length-period)  {
-                calcPrice = (prices[i...].reduce(0, +) / Double(length-i))
+                priceArray = Array(prices[i...])
+                calcPrice =  priceArray.reduce(0, +) / Double(length-i)
             } else {
-                calcPrice = ((prices[(i-period+1)...i].reduce(0, +) / Double(period)))
+                priceArray = Array(prices[(i-period+1)...i])
+                calcPrice = ((priceArray.reduce(0, +) / Double(period)))
             }
+            let sdValue = calcStandardDeviation(calcPrice, priceArray)*2
+            bbValue = (calcPrice + sdValue, calcPrice - sdValue)
+            self.bollingerBands.append(bbValue)
             res.append((calcPrice, timeLine[i]))
         }
         return res
     }
+    
     
     func searchTicker(targetMarket: String) {
         upSwift.getTickers(market: [targetMarket]) { result in
@@ -96,6 +105,11 @@ class CryptocurrencyDetailViewModel: ObservableObject {
                 print(error.failureReason ?? "Not found error")
             }
         }
-        
     }
+    
+    func calcStandardDeviation(_ average: Double, _ inputData:[Double]) -> Double {
+        var res = inputData.map { pow(abs($0 - average), 2) }
+        return sqrt(res.reduce(0, +) / Double(inputData.count))
+    }
+
 }

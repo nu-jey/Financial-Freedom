@@ -46,6 +46,7 @@ class KRDetailViewModel:ObservableObject {
                 self!.inquireDailyPriceResponseOutput = Array(self!.inquireDailyPriceResponseOutput).reversed()
                 self!.chartRange.0 = self!.inquireDailyPriceResponseOutput.map { Double($0.stck_clpr)! }.min()! * 0.9
                 self!.chartRange.1 = self!.inquireDailyPriceResponseOutput.map { Double($0.stck_clpr)! }.max()! * 1.1
+                print(self!.inquireDailyPriceResponseOutput.count)
             }
         }
     }
