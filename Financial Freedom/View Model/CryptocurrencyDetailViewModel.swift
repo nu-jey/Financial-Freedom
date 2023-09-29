@@ -38,21 +38,25 @@ class CryptocurrencyDetailViewModel: ObservableObject {
     @Published var chartState = ChartState(state: .upRight)
     @Published var chartData:[(UpbitCandle, Double, Double, Double)] = []
     @Published var bollingerBands:[(Double,Double)] = []
+    @Published var adiData:[(Double, String)] = []
+    @Published var volumeChartRange: (Double,Double) = (0,0)
+    private var preADIValue:Double = 0
     func searchCandle(targetMarket: String, candleType: CandleType, range: Int)  {
         upSwift.getCandle(candleType, market: targetMarket) { result in
             switch result {
             case .success(let candles):
+                self.chartData = []
+                self.bollingerBands = []
+                self.adiData = []
                 self.candles = candles!
                 self.candles = Array(self.candles[..<min(range, self.candles.count)]).reversed()
-                self.chartRange = (self.candles.map { $0.lowPrice }.min()!, self.candles.map { $0.highPrice }.max()!)
                 self.ma = self.makeMA(self.candles.map { $0.tradePrice }, self.candles.map { $0.candleDateTimeKst}, 5)
-                self.chartData = []
                 for i in 0..<self.candles.count {
                     self.chartData.append((self.candles[i], self.ma[i].0, self.bollingerBands[i].0, self.bollingerBands[i].1))
-                    if (i>0) && (i+1 == self.candles.count) {
-                        
-                    }
+                    self.adiData.append((self.calcADI(close: self.candles[i].tradePrice, high: self.candles[i].highPrice, low: self.candles[i].lowPrice, volume: self.candles[i].candleAccTradeVolume), self.candles[i].candleDateTimeKst))
                 }
+                self.chartRange = (self.candles.map { $0.lowPrice }.min()!, self.candles.map { $0.highPrice }.max()!)
+                self.volumeChartRange = (self.adiData.map { $0.0}.min()!, self.adiData.map { $0.0}.max()!)
             case .failure(let error):
                 print(error.failureReason ?? "Not found error")
             }
@@ -112,4 +116,9 @@ class CryptocurrencyDetailViewModel: ObservableObject {
         return sqrt(res.reduce(0, +) / Double(inputData.count))
     }
 
+    func calcADI(close: Double, high:Double, low:Double, volume:Double) -> Double {
+        let adi = volume * ((close - low) - (high - close)) / (high - low)
+        preADIValue += adi
+        return preADIValue
+    }
 }

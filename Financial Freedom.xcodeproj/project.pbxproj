@@ -69,12 +69,12 @@
 		C225DC272A63CAA90079136A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C225DC2C2A63CF7E0079136A /* CryptocurrencyView.swift */,
-				C225DC302A63CF9C0079136A /* KRView.swift */,
 				C225DC2A2A63CE190079136A /* MainView.swift */,
-				C225DC2E2A63CF920079136A /* USView.swift */,
-				C28540C02AA45B25003E7436 /* KRDetailView.swift */,
+				C225DC2C2A63CF7E0079136A /* CryptocurrencyView.swift */,
 				C28540C62AA45B75003E7436 /* CryptocurrencyDetailView.swift */,
+				C225DC302A63CF9C0079136A /* KRView.swift */,
+				C28540C02AA45B25003E7436 /* KRDetailView.swift */,
+				C225DC2E2A63CF920079136A /* USView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -93,10 +93,10 @@
 		C225DC292A63CAB90079136A /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				C225DC322A63D6800079136A /* CryptocurrencyDetailViewModel.swift */,
-				C20067412A7D0A5100EC4ED3 /* KRDetailViewModel.swift */,
-				C28540BC2AA45A99003E7436 /* KRViewModel.swift */,
 				C28540C42AA45B58003E7436 /* CryptocurrencyViewModel.swift */,
+				C225DC322A63D6800079136A /* CryptocurrencyDetailViewModel.swift */,
+				C28540BC2AA45A99003E7436 /* KRViewModel.swift */,
+				C20067412A7D0A5100EC4ED3 /* KRDetailViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
